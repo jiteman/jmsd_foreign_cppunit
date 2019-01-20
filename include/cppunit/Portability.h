@@ -15,7 +15,7 @@
 #    include <cppunit/config/config-msvc6.h>
 #  endif
 #else
-#    include <cppunit/config-auto.h>
+#    include <cppunit/config/config-auto.h>
 #endif
 
 // Version number of package
