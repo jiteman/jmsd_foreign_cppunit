@@ -41,6 +41,10 @@
 
 #if !defined(CPPUNIT_NO_TESTPLUGIN)
 
+#if defined( CPPUNIT_HAVE_DLFCN_H )
+	#define CPPUNIT_HAVE_LIBDL
+#endif
+
 // Is WIN32 platform ?
 #if defined(WIN32)
 #define CPPUNIT_HAVE_WIN32_DLL_LOADER 1
