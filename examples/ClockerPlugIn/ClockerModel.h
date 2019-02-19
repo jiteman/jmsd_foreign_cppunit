@@ -20,8 +20,11 @@ typedef WinNtTimer Timer;
 #endif
 
 
+#include "cuc.h"
+
+
 /// Model that represents test timing.
-class ClockerModel
+class JMSD_CUC_SHARED_INTERFACE ClockerModel
 {
 public:
   /*! Constructs a ClockerModel object.
@@ -58,7 +61,7 @@ public:
 
   int childCountFor( int testIndex ) const;
 
-  int childAtFor( int testIndex, 
+  int childAtFor( int testIndex,
                   int chidIndex ) const;
 
 private:
@@ -78,12 +81,12 @@ private:
 
 private:
   CPPUNIT_NS::TestPath m_currentPath;
-  
+
   int m_testCaseCount;
   double m_totalTestCaseTime;
 
   typedef std::map<CPPUNIT_NS::Test *, int> TestToIndexes;
-  
+
   TestToIndexes m_testToIndexes;
   std::stack<int> m_testIndexes;
   std::vector<TestInfo> m_tests;

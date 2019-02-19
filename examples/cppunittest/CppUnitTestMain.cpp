@@ -8,6 +8,11 @@
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/XmlOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
+
+#include "ClockerModel.h"
+#include "ClockerListener.h"
+//#include "ClockerXmlHook.h"
+
 #include <stdexcept>
 #include <fstream>
 
@@ -21,9 +26,16 @@ int test_cppunit_main( int const argc, char const *const argv[] )
   // Create the event manager and test controller
   CPPUNIT_NS::TestResult controller;
 
+  	ClockerModel the_model;
+    ClockerListener the_dumper( &the_model, true );
+//    ClockerXmlHook the_xmlHook( the_model );
+
+    controller.addListener( &the_dumper );
+
   // Add a listener that colllects test result
   CPPUNIT_NS::TestResultCollector result;
   controller.addListener( &result );
+
 
   // Add a listener that print dots as test run.
 #ifdef WIN32
