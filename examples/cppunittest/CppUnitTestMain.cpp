@@ -26,9 +26,9 @@ int test_cppunit_main( int const argc, char const *const argv[] )
   // Create the event manager and test controller
   CPPUNIT_NS::TestResult controller;
 
-  	ClockerModel the_model;
-    ClockerListener the_dumper( &the_model, true );
-//    ClockerXmlHook the_xmlHook( the_model );
+	ClockerModel the_model;
+	ClockerListener the_dumper( &the_model, true, false );
+//	ClockerXmlHook the_xmlHook( the_model );
 
     controller.addListener( &the_dumper );
 

@@ -20,7 +20,8 @@ class JMSD_CUC_SHARED_INTERFACE ClockerListener : public CPPUNIT_NS::TestListene
 {
 public:
   ClockerListener( ClockerModel *model,
-                   bool text );
+                   bool text,
+					bool too_long_only );
 
   virtual ~ClockerListener();
 
@@ -58,6 +59,7 @@ private:
 private:
   ClockerModel *m_model;
   bool m_text;
+	bool _too_long_only;
 };
 
 
