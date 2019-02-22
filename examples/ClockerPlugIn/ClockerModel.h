@@ -12,12 +12,18 @@
 #include <stack>
 #include <string>
 
+#include "std_Timer.h"
+
+typedef std_Timer Timer;
+
+/*
 #ifdef CLOCKER_USE_WINNTTIMER
 #include "WinNtTimer.h"
 typedef WinNtTimer Timer;
 #else
 #include "Timer.h"
 #endif
+*/
 
 
 #include "cuc.h"
