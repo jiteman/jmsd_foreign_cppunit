@@ -86,7 +86,11 @@ ClockerListener::printTest( int const testIndex, ::std::string const &indentStri
 	::std::string indent = indentString;
 	int const indentLength = 3;
 
-	if ( !_too_long_only || m_model->testTimeFor( testIndex ) > TOO_LONG_TRESHOLD ) {
+	bool const do_print_this_test =
+		!_too_long_only ||
+		( m_model->is_leaf( testIndex ) && m_model->testTimeFor( testIndex ) > TOO_LONG_TRESHOLD );
+
+	if ( do_print_this_test ) {
 		printTestIndent( indentString, indentLength );
 		printTime( m_model->testTimeFor( testIndex ) );
 

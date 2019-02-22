@@ -53,6 +53,7 @@ public:
   static std::string timeStringFor( double time );
 
   bool isSuite( int testIndex ) const;
+  bool is_leaf( int test_index ) const;
 
   const CPPUNIT_NS::TestPath &testPathFor( int testIndex ) const;
 
@@ -71,6 +72,7 @@ private:
     Timer m_timer;
     bool m_isSuite;
     std::vector<int> m_childIndexes;
+    bool is_leaf_;
   };
 
   /// Prevents the use of the copy constructor.
