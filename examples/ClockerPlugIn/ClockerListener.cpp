@@ -86,7 +86,7 @@ ClockerListener::printTest( int const testIndex, ::std::string const &indentStri
 	::std::string indent = indentString;
 	int const indentLength = 3;
 
-	if ( !_too_long_only || m_model->testTimeFor( testIndex ) > 0.005 ) {
+	if ( !_too_long_only || m_model->testTimeFor( testIndex ) > TOO_LONG_TRESHOLD ) {
 		printTestIndent( indentString, indentLength );
 		printTime( m_model->testTimeFor( testIndex ) );
 
@@ -124,11 +124,11 @@ void ClockerListener::printTime( double const time ) const {
 
 	char const *too_long_test_message = nullptr;
 	{
-		if ( time > 0.5 ) {
+		if ( time > ACCEPTANCE_TRESHOLD ) {
 			too_long_test_message =  "[ACCEPTANCE] ";
-		} else if ( time > 0.05 ) {
+		} else if ( time > FUNCTIONAL_TRESHOLD ) {
 			too_long_test_message =  "[FUNCTIONAL] ";
-		} else if ( time > 0.005 ) {
+		} else if ( time > TOO_LONG_TRESHOLD ) {
 			too_long_test_message =  "[TOO LONG] ";
 		}
 	}

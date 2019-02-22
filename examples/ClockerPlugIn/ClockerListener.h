@@ -18,6 +18,10 @@ class ClockerModel;
 /// TestListener that prints a flatten or hierarchical view of the test tree.
 class JMSD_CUC_SHARED_INTERFACE ClockerListener : public CPPUNIT_NS::TestListener
 {
+	double const ACCEPTANCE_TRESHOLD = 2;
+	double const FUNCTIONAL_TRESHOLD = 0.2;
+	double const TOO_LONG_TRESHOLD = 0.02;
+
 public:
   ClockerListener( ClockerModel *model,
                    bool text,
