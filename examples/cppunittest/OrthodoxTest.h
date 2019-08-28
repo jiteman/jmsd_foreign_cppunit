@@ -38,6 +38,8 @@ private:
   public:
     Value( int value =0 ) : m_value( value ) {}
 
+	Value( Value const &other ) = default;
+
     Value& operator= ( const Value& v )
     {
       m_value = v.m_value;
@@ -133,11 +135,13 @@ private:
   public:
     ValueBadCall( int value =0 ) : Value( value ) {}
 
-    ValueBadCall( const ValueBadCall & ) : Value()
+	ValueBadCall( const ValueBadCall & ) : Value()
     {
       static int serialNumber = 0;
       m_value = ++serialNumber;
     }
+
+	ValueBadCall &operator =( ValueBadCall const &other ) = default;
 
     ValueBadCall operator !()
     {
@@ -150,6 +154,8 @@ private:
   {
   public:
     ValueBadAssignment( int value =0 ) : Value( value ) {}
+
+	ValueBadAssignment( ValueBadAssignment const &other ) = default;
 
     ValueBadAssignment operator !()
     {
